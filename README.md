@@ -1,0 +1,1 @@
+A generator to create a simple React project with Webpack
