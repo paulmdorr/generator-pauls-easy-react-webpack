@@ -1,4 +1,5 @@
 const Generator = require('yeoman-generator')
+const remove = require('remove')
 
 const templatesPath = './templates'
 
@@ -42,21 +43,47 @@ You just have to provide some info:
       name: 'license',
       message: 'The license for your project',
       default: 'MIT'
+    },
+    {
+      type: 'list',
+      name: 'packageManager',
+      message: 'What package manager would you like to use?',
+      default: 1,
+      choices: ['npm', 'yarn']
+    },
+    {
+      type: 'confirm',
+      name: 'start',
+      message: 'If this directory has files, I\'m going to remove all of them, are you sure?',
+      default: true
     }]).then((answers) => {
+      if (!answers.start) {
+        this.log('\nExiting the generator...\n')
+        //Not sure if this is the best way of cancelling the generator
+        process.exit(0)
+      }
       this.props = answers
     });
   }
 
   writing() {
+    // Removing files in destination
+    // TODO: ignoring errors because it was working but throwing busy errors anyway.
+    //       I will pobably change it by this.fs.delete() if they fix it.
+    remove.removeSync(this.destinationPath('./'), {
+      ignoreErrors: true
+    })
+    // Copying all the templates
     this.fs.copy(
       this.templatePath(),
       this.destinationPath(),
       { globOptions: { dot: true } }
     )
+    // Copying templates with placeholders
     this.fs.copyTpl(
       this.templatePath('package.json'),
       this.destinationPath('package.json'), {
-        name: this.props.name,
+        name: this.props.name.replace(/\s/gi, '-'),
         description: this.props.description,
         author: this.props.author,
         license: this.props.license
@@ -68,5 +95,14 @@ You just have to provide some info:
         name: this.props.name
       }
     )
+  }
+
+  install() {
+    const useNmp = this.props.packageManager === 0
+    this.installDependencies({
+      npm: useNmp,
+      bower: false,
+      yarn: !useNmp
+    })
   }
 };

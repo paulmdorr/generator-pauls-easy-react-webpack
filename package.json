@@ -4,8 +4,8 @@
   "description": "A generator to create a simple React project with Webpack",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/paulmdorr/generator-pauls-easy-react-webpack.git"
+    "type": "git",
+    "url": "https://github.com/paulmdorr/generator-pauls-easy-react-webpack.git"
   },
   "files": [
     "generators"
@@ -14,6 +14,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
+    "remove": "^0.1.5",
     "yeoman-generator": "^2.0.1"
   }
 }
