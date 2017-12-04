@@ -83,7 +83,7 @@ You just have to provide some info:
     this.fs.copyTpl(
       this.templatePath('package.json'),
       this.destinationPath('package.json'), {
-        name: this.props.name.replace(/\s/gi, '-'),
+        name: this.props.name.replace(/\s/gi, '-').toLowerCase(),
         description: this.props.description,
         author: this.props.author,
         license: this.props.license

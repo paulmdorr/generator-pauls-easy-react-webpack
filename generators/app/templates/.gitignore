@@ -1,5 +1,4 @@
 yarn.lock
 node_modules
 .vscode
-vendor
 public/build/*
