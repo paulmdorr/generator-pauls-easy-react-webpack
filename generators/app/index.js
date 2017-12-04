@@ -75,13 +75,13 @@ You just have to provide some info:
     })
     // Copying all the templates
     this.fs.copy(
-      this.templatePath(),
+      this.templatePath('final'),
       this.destinationPath(),
       { globOptions: { dot: true } }
     )
     // Copying templates with placeholders
     this.fs.copyTpl(
-      this.templatePath('package.json'),
+      this.templatePath('placeholders/package.json'),
       this.destinationPath('package.json'), {
         name: this.props.name.replace(/\s/gi, '-').toLowerCase(),
         description: this.props.description,
@@ -90,10 +90,14 @@ You just have to provide some info:
       }
     )
     this.fs.copyTpl(
-      this.templatePath('public/index.html'),
+      this.templatePath('placeholders/index.html'),
       this.destinationPath('public/index.html'), {
         name: this.props.name
       }
+    )
+    this.fs.copy(
+      this.templatePath('placeholders/_gitignore'),
+      this.destinationPath('.gitignore')
     )
   }
 
