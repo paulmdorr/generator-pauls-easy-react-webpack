@@ -31,7 +31,7 @@ This generator is aimed towards my personal preferences when creating React apps
 - Directory structure pretty similar to the one described in [this Medium article](https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1)
 - Basic component generation
 
->Important Notice: As you can see in the webpack config files, the `entry` option is set to `APP_DIR + '/scenes/Index/Index.jsx'` instead of the usual `index.js`. This is because I usually just start the app from the main component, so there's no need for an `index.js`. I will surelly add an option to the generator in order to make this customizable, but for the moment you may change it by hand.
+>Important Notice: As you can see in the webpack config files, the `entry` option is set to `APP_DIR + '/scenes/App/App.jsx'` instead of the usual `index.js`. This is because I usually just start the app from the main component, so there's no need for an `index.js`. I will surelly add an option to the generator in order to make this customizable, but for the moment you may change it by hand.
 
 Future features:
 

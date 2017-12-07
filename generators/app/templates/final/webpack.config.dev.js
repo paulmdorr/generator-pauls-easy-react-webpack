@@ -15,7 +15,7 @@ const cleanOptions = {
 }
 
 const config = {
-  entry: APP_DIR + '/scenes/Index/Index.jsx',
+  entry: APP_DIR + '/scenes/App/App.jsx',
   output: {
     path: BUILD_DIR,
     publicPath: '/public/build',

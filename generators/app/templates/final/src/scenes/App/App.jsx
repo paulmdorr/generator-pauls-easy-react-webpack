@@ -6,12 +6,12 @@ import style from './style.css'
 
 injectTapEventPlugin()
 
-class Index extends Component {
+class App extends Component {
   render () {
     return <MuiThemeProvider>
-      <div>Index goes here!</div>
+      <div>App goes here!</div>
     </MuiThemeProvider>
   }
 }
 
-render(<Index/>, document.getElementById('index'))
+render(<App/>, document.getElementById('app'))
