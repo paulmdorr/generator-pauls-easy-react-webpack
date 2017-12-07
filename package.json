@@ -1,6 +1,6 @@
 {
   "name": "generator-pauls-easy-react-webpack",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A generator to create a simple React project with Webpack",
   "license": "MIT",
   "repository": {
