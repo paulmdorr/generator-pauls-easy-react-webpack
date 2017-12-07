@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from 'styles.css'
+import styles from './styles.css'
 
 class <%= name %> extends Component {
   render() {
