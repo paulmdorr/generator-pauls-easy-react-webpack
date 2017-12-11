@@ -23,7 +23,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const baseDir = 'src/' + (this.props.compOrScene === 0 ? 'components/' : 'scenes/')
+    const baseDir = 'src/' + (this.props.compOrScene === 'component' ? 'components/' : 'scenes/')
     const dir = baseDir + this.props.name + '/'
     // Copying all the templates
     this.fs.copy(

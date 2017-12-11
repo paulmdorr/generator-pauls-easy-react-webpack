@@ -102,7 +102,7 @@ You just have to provide some info:
   }
 
   install() {
-    const useNmp = this.props.packageManager === 0
+    const useNmp = this.props.packageManager === 'npm'
     this.installDependencies({
       npm: useNmp,
       bower: false,
